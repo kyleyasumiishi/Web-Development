@@ -1,6 +1,6 @@
 html {
     font-size: 10px;
-    font-family: IBM Plex Serif;
+    font-family: Roboto Open Sans;
     background-color: #002469;
 }
 
@@ -25,5 +25,27 @@ body {
 
 img {
     display: block;
-    margin: 0 auto;
+    margin: auto;
+    
+}
+
+#header_image {
+    margin: 0;
+    background-color: #1E1E1E;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+    text-align: center;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+li a {
+    padding: 0 25px;
 }
