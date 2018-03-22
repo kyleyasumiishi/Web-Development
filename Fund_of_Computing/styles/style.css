@@ -11,6 +11,10 @@ h1 {
     padding: 20px 20px 20px 20px;
 }
 
+h2 {
+    font-size: 25px;
+}
+
 p, li {
     font-size: 16px;
     line-height: 2;
@@ -34,7 +38,7 @@ img {
     background-color: #1E1E1E;
 }
 
-ul {
+ul.header_dropdown {
     list-style-type: none;
     margin: 0;
     padding: 20px;
