@@ -1,4 +1,3 @@
-<h1>Web Development</h1>
 
 <a href="https://kyleyasumiishi.github.io/Web-Development/coffee.html" target="_blank"><strong>I Love Coffee</strong></a>
 <ul><li>Simple, single page website about coffee built with HTML, CSS, and Bootstrap.</li></ul>
