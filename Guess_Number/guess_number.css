@@ -1,0 +1,15 @@
+div.gui {
+    height: 300px;
+    width: 75%;
+    margin: auto;
+    border-style: solid;
+    padding: 0% 2% 2% 2%;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    margin: 8px 0px;
+}

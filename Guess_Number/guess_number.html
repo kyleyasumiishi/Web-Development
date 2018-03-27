@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Guess the Number!</title>
+        <link href="guess_number.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="guess_number.js"></script>
+    </head>
+    <body>
+        <div class="gui">
+        <h1>Guess the Number!</h1>
+        <p><strong>How to play</strong>: Try to guess a random number between 0 - 99 in 7 or fewer guesses.</p>
+        <!--New game button-->
+        <button type="button" onclick="range100()">New Game</button>
+        <br>
+        <br>
+        <!--Input field-->
+        <form id="input">
+            <label for="guess">Enter guess:</label>
+            <input type="number" id="guess" onkeydown="enter_key()">
+            <button type="button" id="button" onclick="input_guess()">Submit</button>
+        </form>
+        <!-- <br> -->
+        <!--Print message-->
+        <p id="m1"></p>
+        <p id="m2"></p>
+        </div>
+        <div>
+            <img src="dogs.jpeg" alt="photo of dogs">
+        </div>
+    </body>
+    </html>
