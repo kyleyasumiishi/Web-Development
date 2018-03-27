@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Guess the Number!</title>
+        <script type="text/javascript" src="guess_number.js"></script>
+    </head>
+    <body>
+        <h1>Guess the Number!</h1>
+        <p><strong>How to play</strong>: Try to guess a random number between 0 - 99 in 7 or fewer guesses!</p>
+        <!--New game button-->
+        <button type="button" onclick="range100()">New Game</button>
+        <br>
+        <br>
+        <!--Input field-->
+        <form id="input" onsubmit="return input_guess(this.value);">
+            Enter guess:<br>
+            <input type="text" name="guess">
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+        <!--Print message-->
+        <p id="m1">Test</p>
+        <p id="m2">Test</p>
+    </body>
+    </html>
