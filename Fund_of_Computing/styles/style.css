@@ -1,24 +1,9 @@
+/* Global Styling */
+
 html {
     font-size: 10px;
     font-family: Roboto Open Sans;
     background-color: #002469;
-}
-
-h1 {
-    font-size: 40px;
-    text-align: center;
-    margin: 0 auto;
-    padding: 20px 20px 20px 20px;
-}
-
-h2 {
-    font-size: 25px;
-}
-
-p, li {
-    font-size: 16px;
-    line-height: 2;
-    letter-spacing: 1px;
 }
 
 body {
@@ -27,32 +12,114 @@ body {
     background-color: white;
 }
 
-img {
+/* Banner and Drop Down Menu Styling */
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 20px 20px 20px;
+}
+
+#header_banner {
+    margin: 0;
+    background-color: #1E1E1E;
+}
+
+#header_image {
     display: block;
     margin: auto;
     
 }
 
-#header_image {
-    margin: 0;
+.buttons {
+    display: block;
     background-color: #1E1E1E;
-}
-
-ul.header_dropdown {
-    list-style-type: none;
-    margin: 0;
-    padding: 20px;
-    overflow: hidden;
     text-align: center;
 }
 
-li.dropdown {
-    display: inline-block;
+.header_dropdown {
+    display: inline;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0;
 }
 
-li a {
-    padding: 0 25px;
+.dropdown, .dropdown a {
+    display: inline-block;
+    width: 100px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
 }
+
+#home-btn {
+    color: #4B9BDB;
+}
+
+#iipp-btn {
+    color: #DDDDA4;
+}
+
+#poc-btn {
+    color: white;
+}
+
+#alg-btn {
+    color: #CC9174;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    max-width: 100px;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Page Heading Styling */
+
+h2 {
+    font-size: 25px;
+
+}
+
+/* Figure Styling */
+
+.fig_image {
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
+figcaption {
+    text-align: center;
+}
+
+/* Main Body Content Styling */
+
+p, li {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+}
+
+/* Mini Project Styling */
 
 .snippet {
     margin: 40px;

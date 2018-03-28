@@ -4,30 +4,71 @@
         <title>IIPP Week 1</title>
         <link href="../styles/style.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
-        <style>
-            img {
-                width: 50%;
-            }
-            figcaption {
-                text-align: center;
-            }
-        </style>
     </head>
     <body>
+        <!-- Banner -->                
         <h1>Learning Programming with Fundamentals of Computing</h1>
-        <div id="header_image"><img src="../images/fundamentals-of-computing-code.png" alt="A snippet of Python code that prints a welcome message."></div>
-        <ul class="header_dropdown">
-            <li class="dropdown"><a href="../index.html">Home</a></li>
-            <li class="dropdown"><a href="#IIPP">Introduction to Interactive Programming in Python</a></li>
-            <li class="dropdown"><a href="#POC">Principles of Computing</a></li>
-            <li class="dropdown"><a href="#AlgTh">Algorithmic Thinking</a></li>
-        </ul>
+        <div id="header_banner">
+            <img src="../images/fundamentals-of-computing-code.png" alt="A snippet of Python code that prints a welcome message." id="header_image">
+        </div>
+        <!-- Drop Down Menu -->                        
+        <div class="buttons"> 
+            <ul class="header_dropdown">
+                <li class="dropdown">
+                    <a href="../index.html" id="home-btn">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="iipp-btn">IIPP</a>
+                    <div class="dropdown-content">
+                        <a href="iipp-week0.html">Week 0</a>
+                        <a href="iipp-week1.html">Week 1</a>
+                        <a href="iipp-week2.html">Week 2</a>
+                        <a href="#">Week 3</a>
+                        <a href="#">Week 4</a>
+                        <a href="#">Week 5</a>
+                        <a href="#">Week 6</a>
+                        <a href="#">Week 7</a>
+                        <a href="#">Week 8</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="poc-btn">POC</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="alg-btn">AlgThk</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Page Heading -->   
         <h2>Introduction to Interactive Programming in Python - Week 1</h2>
+        <!-- Intro Paragraph -->  
         <p>The second week of the course introduces the basic constructs of Python programming, including functions, logic and comparisons, and conditionals. We also build our first program this week: <a href="https://en.wikipedia.org/wiki/Rock-paper-scissors#Additional_weapons" target="_blank" rel="noopener nofollow"> Rock, Paper, Scissors, Lizard, Spock!</a></p>
+        <!-- Figure -->
         <figure>
-            <img src="../images/rpsls.png" alt="Relationships between rock, paper, scissors, lizard, and Spock">
+            <img class="fig_image" src="../images/rpsls.png" alt="Relationships between rock, paper, scissors, lizard, and Spock">
             <figcaption>In this variant of Rock, Paper, Scissors, popularized by the The Big Bang Theory, each weapon defeats the weapons it points to, and is defeated by weapons pointing to it.</figcaption>
         </figure>
+        <!-- Python Concepts -->
         <ul>
             <li><strong>Functions</strong>: A piece of code that you define and then execute later by calling it.</li>
             <li><strong>Comparisons</strong>: The six comparison operators allow you to compare two values and generate a Boolean value. In programming, a Boolean expression always evaluates to either True or False (or, equivalently, Yes/No, On/Off, etc.). The comparison operators are as follows:
@@ -42,6 +83,7 @@
             </li>
             <li><strong>Conditionals</strong>: Oftentimes you'll want to change a program's behavior based on a given value or user input. To control the flow of your program, you can check a value in the program and then execute different lines of code based on that value. In Python, you can control the flow of programs using the following conditionals: if/elif/else.</li>
         </ul>
+        <!-- Mini Project -->
         <p><strong>Mini Project 1</strong></p>
         <p>This week's mini project is to create the game Rock, Paper, Scissors, Lizard, Spock that we can play against the computer. To do so, we need to write three functions: name_to_number, number_to_name, and rpsls.</p>
         <ul>
@@ -56,3 +98,5 @@
             </li>
         </ul>
         <p>See my complete implementation of <a href="https://github.com/kyleyasumiishi/Fundamentals_of_Computing/blob/master/rpsls.py" target="_blank" rel="noopener nofollow">Mini Project 1 on GitHub</a>.</p>
+    </body>
+</html>

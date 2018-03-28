@@ -6,17 +6,65 @@
         <link href="../styles/style.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     </head>
-    <body>
+    <body>             
+        <!-- Banner -->                
         <h1>Learning Programming with Fundamentals of Computing</h1>
-        <div id="header_image"><img src="../images/fundamentals-of-computing-code.png" alt="A snippet of Python code that prints a welcome message."></div>
-        <ul class="header_dropdown">
-            <li class="dropdown"><a href="../index.html">Home</a></li>
-            <li class="dropdown"><a href="#IIPP">Introduction to Interactive Programming in Python</a></li>
-            <li class="dropdown"><a href="#POC">Principles of Computing</a></li>
-            <li class="dropdown"><a href="#AlgTh">Algorithmic Thinking</a></li>
-        </ul>
+        <div id="header_banner">
+            <img src="../images/fundamentals-of-computing-code.png" alt="A snippet of Python code that prints a welcome message." id="header_image">
+        </div>
+        <!-- Drop Down Menu -->                        
+        <div class="buttons"> 
+            <ul class="header_dropdown">
+                <li class="dropdown">
+                    <a href="../index.html" id="home-btn">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="iipp-btn">IIPP</a>
+                    <div class="dropdown-content">
+                        <a href="iipp-week0.html">Week 0</a>
+                        <a href="iipp-week1.html">Week 1</a>
+                        <a href="iipp-week2.html">Week 2</a>
+                        <a href="#">Week 3</a>
+                        <a href="#">Week 4</a>
+                        <a href="#">Week 5</a>
+                        <a href="#">Week 6</a>
+                        <a href="#">Week 7</a>
+                        <a href="#">Week 8</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="poc-btn">POC</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="alg-btn">AlgThk</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Page Heading -->   
         <h2>Introduction to Interactive Programming in Python - Week 0</h2>
+        <!-- Intro Paragraph -->  
         <p>The first week covers the very basics of programming languages: expressions, variables, and assignments.</p>
+        <!-- Python Concepts -->
         <ul>
             <li><strong>Expressions</strong>: Something that evaluates to a single value. For example, 2 + 2 is an expression because it evaluates to a single value, 4. The 2's are values, and the + symbol is an operator. Expressions simply combine values and operators. There are many different types of operators. The following are some of the most common types:
                 <ul>
@@ -32,6 +80,7 @@
             <li><strong>Variables</strong>: A location in memory where you can store a value.</li>
             <li><strong>Assignments</strong>: A statement that connects a value to a variable. For example, tomato = 4. In this case, tomato is a variable, which I assigned the value 4 using the assignment operator =.</li>
         </ul>
+        <!-- Mini Project -->
         <p><strong>Mini Project 0</strong></p>
         <p>The structure of each course in the Fundamentals of Computing specialization includes weekly videos, homework assignments, and mini projects that allow students to apply that week's concepts. Since the first week covers the very basics of Python and the logistics of the course, its mini project is simply printing the statement "We want... a shrubbery!" in Python.</p>
         <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/2683b8759fd227b4d056e147e95a6560.js"></script></div>
