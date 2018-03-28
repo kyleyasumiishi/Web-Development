@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Stopwatch: The Game!</title>
+        <link href="styles/style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="scripts/main.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Bootstrap CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div id="border">
+                <h1 class="text-center">Stopwatch: The Game!</h1>
+                <p><strong>How to play:</strong> Try to stop the timer on a whole second.</p>
+                <p id="score"><strong>Score:</strong> 0/0</p>
+                <h1 id="timer" class="text-center">0:00.0</h1>
+                <button type="button" class="btn btn-block btn-success" onclick="start()" onclick="print_count()">Start</button>
+                <button type="button" class="btn btn-block btn-danger" onclick="stop()">Stop</button>
+                <button type="button" class="btn btn-block btn-info" onclick="reset()">Reset</button>
+            </div>
+        </div>
+    </body>
+</html>

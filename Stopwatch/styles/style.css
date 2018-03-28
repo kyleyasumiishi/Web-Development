@@ -1,0 +1,11 @@
+html, .container-fluid {
+    margin: 0;
+    height: 100%;
+    background-color: #e5fbff;
+}
+
+
+#border {
+    margin: 5%;
+}
+
