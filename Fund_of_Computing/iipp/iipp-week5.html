@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IIPP Week 5</title>
+        <link href="../styles/style.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+        <style>
+            img.fig_image {
+                border-style: solid;
+            }
+
+            #pong_code, #simplegui_pong {
+                display: block;
+                width: 75%;
+                margin: auto;
+                border-style: solid;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Banner -->                
+        <h1>Learning Programming with Fundamentals of Computing</h1>
+        <div id="header_banner">
+            <img src="../images/fundamentals-of-computing-code.png" alt="A snippet of Python code that prints a welcome message." id="header_image">
+        </div>
+        <!-- Drop Down Menu -->                        
+        <div class="buttons"> 
+            <ul class="header_dropdown">
+                <li class="dropdown">
+                    <a href="../index.html" id="home-btn">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="iipp-btn">IIPP</a>
+                    <div class="dropdown-content">
+                        <a href="iipp-week1.html">Week 1</a>
+                        <a href="iipp-week2.html">Week 2</a>
+                        <a href="iipp-week3.html">Week 3</a>
+                        <a href="iipp-week4.html">Week 4</a>
+                        <a href="iipp-week5.html">Week 5</a>
+                        <a href="#">Week 6</a>
+                        <a href="#">Week 7</a>
+                        <a href="#">Week 8</a>
+                        <a href="#">Week 9</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="poc-btn">POC</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="alg-btn">AlgThk</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Page Heading -->                
+        <h2>Introduction to Interactive Programming in Python - Week 5</h2>
+        <!-- Intro Paragraph -->        
+        <p>Week 5 marks the final week of the first of two courses in Introduction to Interactive Programming in Python. This week we learn the basics of lists and how to model moving objects in Python.</p>
+        <p>This week's mini project is recreating the classic arcade game "Pong".</p>
+        <!-- Figure -->
+        <!--
+            <figure>
+            <a href="https://kyleyasumiishi.github.io/Web-Development/Stopwatch/index.html" target="_blank"><img class="fig_image" src="../images/stopwatch_js.png" alt="Screenshot of Guess the Number website"></a>
+            <figcaption></figcaption>
+        </figure>
+        -->
+        <img id="simplegui_pong" src="../images/simplegui_pong.png" alt="Screenshot of my implementation of Pong in the simplegui GUI interface.">
+        <!-- Python Concepts -->
+        <ul>
+            <li><strong>Lists</strong>: Lists are one of the most common sequence types in Python. They allow us to group together a collection of objects, and refer to that collection of objects with a single variable. We use the square brackets [] to create a list in Python. Inside of these brackets, we can store pretty much any type of object, including integers, strings, other lists, or nothing at all (i.e., an empty list). To get the length of a list, we can use Python's "len" function. For example, if a_list = ['a', 'b', 'c''], then len(a_list) is 3. We can also manipulate lists in much the same way as we can strings, such as accessing individual elements of lists using indexing or slicing techniques. Unlike with strings, however, we can also change the elements in lists. For example, to change the second element of a_list to the integer 42, we would do a_list[1] = 42 (recall that indexing starts at 0 in Python). Now, a_list = ['a', 42, 'c']. We can do this because lists are a <i>mutable</i> data type, whereas strings are <i>immutable</i>. Other types of immutable data include Booleans and numbers. Lists are extremely important in programming, and this week's lecture just briefly introduces this common data structure.</li>
+            <li><strong>Modeling Motion</strong>: The lectures in <a href="iipp-week3.html" target="_blank">Week 3</a> and <a href="iipp-week4.html" target="_blank">Week 4</a> introduced the concept of event-driven programming, where event-handler functions are executed when certain events occur. The events in prior weeks included button events and timer events. This week introduces <i>keyboard events</i>, which allow us to execute event-handler functions by registering these functions with specific keys on the keyboard (e.g., UP, RIGHT, DOWN, LEFT arrow keys). Keyboard events allow us to control our program with the keyboard, which will allow us to start building much more interactive programs. This week also introduces how to model motion in Python, which involves a small amount of physics and calculus.
+            <ul>
+                <li><strong>Motion</strong>: In physics, <a href="https://en.wikipedia.org/wiki/Motion_(physics)" target="_blank">motion</a> is a change of <i>position</i> of an <i>object</i> over <i>time</i>. In previous weeks, we learned how to create a canvas and draw an object (e.g., string, number, picture, etc.) on the canvas. Now that we understand the list data structure, we can represent the position of that object as a list of its x and y coordinates (i.e., number of pixels in the horizontal and vertical directions from the top-left corner of the canvas), like [x, y]. Recall that anytime we draw an object on a canvas in Python, the computer is rapdily refreshing its frame buffer at a frequency determined by its refresh rate, expressed as a number per second. Thus, we can use seconds as a convenient time interval. Furthermore, we also know how to create a timer event to keep track of time in our programs. As a result, we can model motion by changing the [x, y] position of an object on our canvas over time. If we flip the equation for motion around, we can derive the equation for position: <strong>position = velocity * time</strong>. Note that an object's <a href="https://en.wikipedia.org/wiki/Velocity" target="_blank">velocity</a> is simply the rate of change of its position over time (e.g., 25 mph). Mathematically, the equation for position is: <strong>p(t+1) = p(t) + (1)(v(t))</strong>, where p is position, t is time, and v is a constant velocity (Note that we can increase or decrease the velocity my multiplying it by a scalar constant). Implementing this code in Python would look like: <strong>p[0] = p[0] + v[0]</strong> and <strong>p[1] = p[1] + v[1]</strong>.</li>
+                <li><strong>Collisions and Reflections</strong>: In <a href="https://en.wikipedia.org/wiki/Pong" target="_blank">Pong</a>, players control vertically-moving paddles to hit a moving ball back and forth. Therefore, in addition to understanding ball physics and modeling motion in Python, it's also necessary to understand how to model collisions and reflections to avoid having a moving ball drift off the canvas. The ball object in our Pong project will have a center point p and radius r. To detect a <i>collision</i> of the ball with the left or right wall, for example, we'll need to check the following - <strong>Left wall: p[0] <= r</strong> (i.e., ball collides with left wall when its center p is r pixels away from the left edge of the canvas) and <strong>Right wall: p[0] >= width - r</strong>. To model a <i>reflection</i> of the ball, we'll need to update the ball's velocity vector (i.e., direction) when it collides with a paddle or wall. For example, we'll need to do the following to reflect the ball off of the left paddle: <strong>v[0] = -v[0]</strong> (i.e., flips the x direction) and <strong>v[1] = v[1]</strong> (i.e., keeps the same y direction).</li>
+            </ul></li>
+        </ul>
+        <!-- Mini Project -->
+        <p><strong>Mini Project 5</strong></p>
+        <p>This week's mini project is building a clone of the classic arcade game Pong. The image below shows how I organized the functions in my implementation of Pong - notice there are really only a few parts to this program: intializing global variables, writing event handlers and a couple functions to start a new game, and creating and starting a frame.</p>
+        <img id="pong_code" src="../images/pong_code.png" alt="Summary of my implementation of Pong in Python in VS Code">
+        <ul>
+            <li><strong>Creating and Starting Frame</strong>: The first thing we need to do is create a canvas to draw the objects in our Pong game, such as the ball and paddles, and create a GUI with buttons to start and reset the game. In CodeSkulptor, the built-in GUI library is called simplegui. In Python there are several different libraries you can use for creating GUI applications, such as Tkinter. The syntax will likely vary a little bit from library to library, but the overall concepts are the same. Notice that the create_frame function takes as parameters the global variables WIDTH and HEIGHT. All of the global variables are capitalized to signify that we don't want our functions to modify their values.</li>
+            <li><strong>spawn_ball and new_game</strong>: The <strong>new_game()</strong> function initializes a bunch of global variables. Note that these global variables are in lower case, to differentiate them from the global variables whose values shouldn't be modified by any function. These global variables include the scores as well as the positions and velocities of the ball and paddles, which will be modified by the event handlers as players play the game. The <strong>spawn_ball(direction)</strong> function randomly sets the velocity of the ball in either the left or right direction. Note that ball_vel[1] is a negative value regardless of whether the direction is "left" or "right". This will cause the ball to move towards the top of the canvas in either direction every time a new game starts or a player scores a point.</li>
+            <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/3e826e402ae646cd9b533302318a0ba3.js"></script></div>
+            <li><strong>Event Handlers</strong>: There are three types of events in this implementation of Pong: keyboard events, button events, and drawing events. Keyboard events and button events are more straightforward than drawing events, so we'll deal with those first.
+            <ul>
+                <li><strong>Keyboard events</strong>: In Pong, we use the "w" and "up" and "s" and "down" keys to move the left and right paddles up and down, respectively. To move the paddles, we increase their velocities when the keys are pressed, and set their velocities to zero when the keys are unpressed. </li>
+                <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/8bbde08738b60e16bc6a73a5d65870a5.js"></script></div>
+                <li><strong>Button events</strong>: In my implementation of Pong in Python, I included two buttons: one to start the game and another to reset the game. The start event handler randomly chooses "left" or "right" as the direction parameter to pass to the spawn_ball function. The reset event handler simply calls the new_game function and sets the value of the global variables score1 and score2 to zero.</li>
+                <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/300d38215e4946ea874ec9935840d832.js"></script></div>
+                <li><strong>Drawing events</strong>: There are a few objects we'll need to draw to the canvas to create our Pong program, including static items like lines and text, a ball object whose velocity will change throughout the game, and paddles that will move up and down at a constant velocity when certain keys are pressed.
+                    <ul>
+                        <li><strong>Static items</strong>: To draw the mid line and gutters, as well as the scores, on the canvas we simply need to use the draw_line and draw_text methods, respectively.  </li>
+                        <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/6ba29df0281f393fdbf7db9d462299ed.js"></script></div>
+                        <li><strong>Ball</strong>: To draw the ball on the canvas, we use the draw_circle method. We also need to update the position of the ball every time the draw handler is called - this will have the effect of making the ball look like it's in continuous motion. However, in reality the computer is simply refreshing its buffer 60+ times per second, and each time it draws the ball in a different position on the canvas. In the code snippet below, notice that we're making sure that the ball stays on the screen by detecting any collisions with the top and bottom of the canvas, and reflecting the ball upon collisions by negating its velocity vector. This is what causes the ball to bounce off the top and bottom edges of the screen rather than drift away.</li>
+                        <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/6bebd11b2d3d7bdf53b3833dc86fb68b.js"></script></div>
+                        <li><strong>Paddles</strong>: We draw the paddles the same way we draw the mid line and gutters - by using the draw_line function. Similarly, we keep the paddles on the screen just like we kept the ball from drifting beyond the top and bottom of the canvas. The most interesting part of this entire program is writing the logic for detecting collisions between the ball and the paddle. This code says when there's a collision between the ball and the left or right edge, check whether that collision is between the top and bottom of the paddle on that side of the canvas. If it is, then we'll change the direction of the ball and increase the ball's velocity (in this case, by 25%). Otherwise, we adjust the scores and the ball respawns in the center of the canvas and shoots off in the direction of the scoring player.</li>
+                        <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/444d83abc2931e326f4a5e863795c5f4.js"></script></div>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+        
+        <p>See my complete implementation of <a href="https://github.com/kyleyasumiishi/Fundamentals_of_Computing/blob/master/IIPP/pong.py" target="_blank" rel="noopener nofollow">Mini Project 5 on GitHub</a>.</p>    
+    </body>
+</html>
+
+        
