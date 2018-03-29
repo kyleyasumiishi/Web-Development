@@ -28,7 +28,7 @@
                         <a href="iipp-week1.html">Week 1</a>
                         <a href="iipp-week2.html">Week 2</a>
                         <a href="iipp-week3.html">Week 3</a>
-                        <a href="#">Week 4</a>
+                        <a href="iipp-week4.html">Week 4</a>
                         <a href="#">Week 5</a>
                         <a href="#">Week 6</a>
                         <a href="#">Week 7</a>
@@ -67,7 +67,7 @@
         <!-- Page Heading -->                
         <h2>Introduction to Interactive Programming in Python - Week 4</h2>
         <!-- Intro Paragraph -->        
-        <p>This week teaches us how to create a canvas in CodeSkulptor and how to draw on the canvas. This is the first week where we get to start really interacting with our programs and fully understand the usefulness of event-driven programming.</p>
+        <p>This week we learn how to create a canvas in Python and how to draw on the canvas. This is the first week where we get to start really interacting with our programs and fully understand the usefulness of event-driven programming.</p>
         <p>This week's mini project is building a digital stopwatch and a very simple game where the player tries to stop the stopwatch on a whole second to score points.</p>
         <!-- Figure -->
         <figure>
@@ -76,19 +76,38 @@
         </figure>
         <!-- Python Concepts -->
         <ul>
-            <li><strong>Canvas Drawing</strong>: Most of the projects in this specialization are interactive applications that allow a player to interact with the program through a general user interface (GUI). Therefore it's necessary to understand how to create a canvas where we can draw and display objects such as images, strings, and numbers. When creating a canvas, it's helpful to think about your computer monitor as what it really is: a 2-dimensional grid of pixels whose colors are stored in memory as a frame buffer. Your computer constantly updates the monitor at a frequency determined by its <i>refresh rate</i>. Typically, event-driven programs register a special function called a <i>draw handler</i> that tell the computer what to draw on the canvas each time it updates its buffer. Since computers can update their buffers tens or hundreds of times per second (for example, a 120 Hz monitor handles up to 120 frames per second), humans perceive objects shown on our monitors as being fixed in place or in smooth motion, rather than being constantly updated.</li>
-            <li><strong>String Processing</strong>: Modifying text is an extremely useful application of programming, and Python makes it really easy to do. This week's lecture just scratches the surface of all of the string manipulation that's possible in Python. In addition to this week's lecture, I've also benefitted a lot from the <a href="https://automatetheboringstuff.com/chapter6/" target="_blank">Manipulating Strings chapter</a> of Al Sweigart's Automate the Boring Stuff with Python and the <a href="https://docs.python.org/2/library/string.html" target="_blank">Python docs</a>. Specifically, this week's lecture covered these basic string processing techniques:
+            <li><strong>Canvas Drawing</strong>: Most of the projects in this specialization are interactive applications that allow a player to interact with the program through a general user interface (GUI). Therefore it's necessary to understand how to create a canvas where we can draw and display objects such as images, strings, and numbers. When creating a canvas, it's helpful to think about your computer monitor as what it really is: a 2-dimensional grid of pixels whose colors are stored in memory as a frame buffer. Your computer constantly updates the monitor at a frequency determined by its <i>refresh rate</i>. Typically, event-driven programs such as this week's mini project register a special function called a <i>draw handler</i> that tell the computer what to draw on the canvas each time it updates its buffer. Since computers can update their buffers tens or hundreds of times per second (for example, a 120 Hz monitor can handle up to 120 frames per second), humans perceive objects shown on our monitors as being fixed in place or in smooth motion, rather than being constantly updated.</li>
+            <li><strong>String Processing</strong>: Modifying text is an extremely useful application of programming, and Python makes it really easy to do. This week's lecture just scratches the surface of all of the string manipulation that's possible in Python. (I'm a big fan of the <a href="https://automatetheboringstuff.com/chapter6/" target="_blank">Manipulating Strings</a> chapter of Al Sweigart's Automate the Boring Stuff with Python and the <a href="https://docs.python.org/2/library/string.html" target="_blank">Python docs</a> for additional string manipulation techniques.) Specifically, this week's lecture covered these basic string processing techniques:
             <ul>
-                <li><strong>Combining Strings</strong>: In Python, you can concatenate two strings using the + operator. For example, printing "Hello" + " world" would result in "Hello world".</li>
-                <li><strong>Characters and Slices</strong>: You can get a specific character in a string by specifying its index. For example, if myVariable = "Hello world!", we could get the "H" character by calling myVariable[0]. Note that indexing starts at 0, rather than 1, in Python (this is because 0 is the most logical starting point if you consider that computers store all numbers as bits, and the number 0 is represented as 00000000 in memory). Calling myVariable[:] would return the entire "Hello world!" string, whereas myVariable[2:] would return the entire string starting from the index position 2. You can also use negative numbers as index positions, such as myVariable[-1], which would return the "!" character.</li>
+                <li><strong>Combining Strings</strong>: In Python, one way you can concatenate two strings is using the + operator. For example, printing "Hello" + " world" would result in "Hello world".</li>
+                <li><strong>Characters and Slices</strong>: You can get a specific character in a string by specifying its index. For example, if myVariable = "Hello world!", we could get the "H" character by calling myVariable[0]. Note that in Python indexing starts at 0, rather than 1 (this is because 0 is the most logical starting point if you consider that computers store all numbers as bits, and the number 0 is represented as 00000000 in memory). Calling myVariable[:] would return the entire "Hello world!" string, whereas myVariable[2:] would return the entire string starting from the index position 2. You can also use negative numbers as index positions, such as myVariable[-1], which would return the "!" character.</li>
                 <li><strong>Converting Strings</strong>: To convert the string representation of a number, such as "7", into an integer, use Python's "int" built-in function. For example, int("7") would return the integer 7.</li>
             </ul>
             </li>
         </ul>
         <!-- Mini Project -->
         <p><strong>Mini Project 4</strong></p>
-        <p></p>
-        <p>See my complete implementation of <a href="https://github.com/kyleyasumiishi/Fundamentals_of_Computing/IIPP/stopwatch.py" target="_blank" rel="noopener nofollow">Mini Project 4 on GitHub</a>.</p>    
+        <p>This week's mini project is to build a digital stopwatch. To make the application more interactive, we'll add a score that increases whenever the player successfully stops the stopwatch on a whole second (i.e., when the stopwatch shows 0 milliseconds). To build this project, we need to do the following:
+            <ul>
+                <li>Construct a timer</li>
+                <li>Write the event handler function for the canvas that draws the current time</li> 
+                <li>Add "Start", "Stop", and "Reset" buttons to the canvas and write their corresponding event handlers</li>
+                <li>Write a helper function to format the time</li>
+                <li>Add two additional counters that keep track of the number of successful stops and total stops of the stopwatch.</li>
+            </ul>
+        </p>
+        <ul>
+            <li><strong>Timer</strong>: To create a timer in CodeSkulptor, we use the simplegui.create_timer function, which takes as parameters a function and the time interval between calling that function in milliseconds. Since we want our timer to call the time function every 1/10th of a second, we'll use 100 milliseconds as the time interval. The time function itself is straightforward: every time the function is executed it increments the global variable COUNT by 1.</li>
+            <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/c952ef1a39094af9ae227da0f3de9d5e.js"></script></div>
+            <li><strong>Draw Handler</strong>: To draw objects to the canvas, we first need to create a canvas frame using the simplegui.create_frame function. Then we need to register the draw handler with the frame's set_draw_handler method, which takes the draw handler function draw() as its only parameter. Note that the draw handler takes a canvas as a parameter, which logically makes sense because we need to tell the draw handler where to draw objects.</li>
+            <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/7b292268f273314281f498d0be7d217e.js"></script></div>
+            <li><strong>Score Counters</strong>: To turn our digital stopwatch into a simple, interactive game, we need to add two additional global variables, TOTAL_STOPS and SUCCESSFUL_STOPS, that will be incremented in the event handler for the "Stop" button.</li>
+            <li><strong>Buttons</strong>: This project has three buttons: "Start", "Stop", and "Reset". The <strong>"Start" button</strong> changes the global variable IS_TIMER_STOPPED to the Boolean value False and starts the timer. By default, this global variable is True since the timer doesn't start immediately when the player runs the program; rather, it should start only when the player clicks the "Start" button. The <strong>"Stop" button</strong> stops the timer and changes IS_TIMER_STOPPED to False. It also updates the global variables TOTAL_STOPS and SUCCESSFUL_STOPS depending on whether the COUNT represents a whole second. It's easy to introduce a bug into this button handler if you don't use the IS_TIMER_STOPPED global variable. For example, if you omit this Boolean value, then every time the player clicks the "Stop" button, the TOTAL_STOPS variable will be incremented. <strong>The "Reset" button</strong> stops the timer and resets the global variables COUNT, SUCCESSFUL_STOPS, and TOTAL_STOPS.</li>
+            <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/4a22a65d733aae6791f76d70c9350e35.js"></script></div>
+            <li><strong>Formatting Helper Functions</strong>: We'll want to draw the global variable COUNT on the canvas in a format that resembles a digital stopwatch. For example, rather than drawing the COUNT on the canvas as 621, we'll reformat it to be 1:02.1. In order to do this, we need to use division, modulular arithmetic, and string processing.</li>
+            <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/cdaa1dc6e001e4d0d9781a8b9f0aba6e.js"></script></div>
+        </ul>
+        <p>See my complete implementation of <a href="https://github.com/kyleyasumiishi/Fundamentals_of_Computing/blob/master/IIPP/stopwatch.py" target="_blank" rel="noopener nofollow">Mini Project 4 on GitHub</a>.</p>    
     </body>
 </html>
 
