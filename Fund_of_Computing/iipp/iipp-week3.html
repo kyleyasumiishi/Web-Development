@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IIPP Week 3</title>
+        <link href="../styles/style.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+        <style>
+            img.fig_image {
+                border-style: solid;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Banner -->                
+        <h1>Learning Programming with Fundamentals of Computing</h1>
+        <div id="header_banner">
+            <img src="../images/fundamentals-of-computing-code.png" alt="A snippet of Python code that prints a welcome message." id="header_image">
+        </div>
+        <!-- Drop Down Menu -->                        
+        <div class="buttons"> 
+            <ul class="header_dropdown">
+                <li class="dropdown">
+                    <a href="../index.html" id="home-btn">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="iipp-btn">IIPP</a>
+                    <div class="dropdown-content">
+                        <a href="iipp-week1.html">Week 1</a>
+                        <a href="iipp-week2.html">Week 2</a>
+                        <a href="iipp-week3.html">Week 3</a>
+                        <a href="#">Week 4</a>
+                        <a href="#">Week 5</a>
+                        <a href="#">Week 6</a>
+                        <a href="#">Week 7</a>
+                        <a href="#">Week 8</a>
+                        <a href="#">Week 9</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="poc-btn">POC</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="alg-btn">AlgThk</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Page Heading -->                
+        <h2>Introduction to Interactive Programming in Python - Week 3</h2>
+        <!-- Intro Paragraph -->        
+        <p>Week 3 introduces the basics of event-driven programming and covers the differences between local and global variables. This week's mini project is "Guess the Number", a simple game where the player attempts to guess a randomly generated secret number in a certain number of tries.</p>
+        <!-- Figure -->
+        <figure>
+            <a href="https://kyleyasumiishi.github.io/Web-Development/Guess_Number/guess_number.html" target="_blank"><img class="fig_image" src="../images/guess_the_number.png" alt="Screenshot of Guess the Number website"></a>
+            <figcaption>My re-creation of Guess the Number in JavaScript.</figcaption>
+        </figure>
+        <!-- Python Concepts -->
+        <ul>
+            <li><strong>Event-Driven Programming</strong>: This type of programming sets the groundwork for allowing us to build interactive games later in the course, such as Pong and RiceRocks (a clone of the classic arcade game Asteroids). In event-driven programming, our program waits for events to occur, and then execute event-handler functions once these events occur. So what is an event? An event can be any action that your computer and program registers. Some of the main events include the following:
+            <ul>
+                <li>Input events</li>
+                <li>Keyboard events</li>
+                <li>Mouse events</li>
+                <li>Timer events</li>
+            </ul>
+            </li>
+            <li><strong>Global/Local Variables</strong>: A function is like a mini program within a program. Each function has its own purpose separate from the program as a whole, and it may contain its own variables. Variables that are defined within a function are called <i>local variables</i> and they have a <i>local scope</i>. On the other hand,  variables that are not defined in a function are defined in the <i>global scope</i> of the program. These are called <i>global variables</i>. There is only one global scope of a program, and it is created when the program starts. However, there can be multiple local scopes, and they are created when a function is called and destroyed after the function is executed. A local variable can't be accessed in the global scope, but a global variable can be accessed and modified in a local scope (i.e., within a function) by using the "global" statement in Python.</li>
+        </ul>
+        <!-- Mini Project -->
+        <p><strong>Mini Project 3</strong></p>
+        <p>This week's mini project is to create the game Guess the Number. To do so, we need to write three categories of functions: a helper function to start and restart the game, event handlers for the control panel of the graphical user interface (GUI), and an input_guess function that contains the main logic of the game. We'll also need to register the event handlers and start the GUI frame. Note that the syntax for this final step is specific to CodeSkulptor, but the concept applies to other GUI packages in Python such as Tkinter.</p>
+        <script src="https://gist.github.com/kyleyasumiishi/a989a974d2d4ed4e821f17ded9d4939f.js"></script>
+        <p>See my complete implementation of <a href="https://github.com/kyleyasumiishi/Fundamentals_of_Computing/IIPP/guess_the_number.py" target="_blank" rel="noopener nofollow">Mini Project 3 on GitHub</a>.</p>    
+    </body>
+</html>
+
+        

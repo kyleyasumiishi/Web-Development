@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IIPP Week 4</title>
+        <link href="../styles/style.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+        <style>
+            img.fig_image {
+                border-style: solid;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Banner -->                
+        <h1>Learning Programming with Fundamentals of Computing</h1>
+        <div id="header_banner">
+            <img src="../images/fundamentals-of-computing-code.png" alt="A snippet of Python code that prints a welcome message." id="header_image">
+        </div>
+        <!-- Drop Down Menu -->                        
+        <div class="buttons"> 
+            <ul class="header_dropdown">
+                <li class="dropdown">
+                    <a href="../index.html" id="home-btn">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="iipp-btn">IIPP</a>
+                    <div class="dropdown-content">
+                        <a href="iipp-week1.html">Week 1</a>
+                        <a href="iipp-week2.html">Week 2</a>
+                        <a href="iipp-week3.html">Week 3</a>
+                        <a href="#">Week 4</a>
+                        <a href="#">Week 5</a>
+                        <a href="#">Week 6</a>
+                        <a href="#">Week 7</a>
+                        <a href="#">Week 8</a>
+                        <a href="#">Week 9</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="poc-btn">POC</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="alg-btn">AlgThk</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Page Heading -->                
+        <h2>Introduction to Interactive Programming in Python - Week 4</h2>
+        <!-- Intro Paragraph -->        
+        <p>This week teaches us how to create a canvas in CodeSkulptor and how to draw on the canvas. This is the first week where we get to start really interacting with our programs and fully understand the usefulness of event-driven programming.</p>
+        <p>This week's mini project is building a digital stopwatch and a very simple game where the player tries to stop the stopwatch on a whole second to score points.</p>
+        <!-- Figure -->
+        <figure>
+            <a href="https://kyleyasumiishi.github.io/Web-Development/Stopwatch/index.html" target="_blank"><img class="fig_image" src="../images/stopwatch_js.png" alt="Screenshot of Guess the Number website"></a>
+            <figcaption>A clone of this week's mini project, Stopwatch: The Game!, that I built in JavaScript, HTML, CSS, and Bootstrap.</figcaption>
+        </figure>
+        <!-- Python Concepts -->
+        <ul>
+            <li><strong>Canvas Drawing</strong>: Most of the projects in this specialization are interactive applications that allow a player to interact with the program through a general user interface (GUI). Therefore it's necessary to understand how to create a canvas where we can draw and display objects such as images, strings, and numbers. When creating a canvas, it's helpful to think about your computer monitor as what it really is: a 2-dimensional grid of pixels whose colors are stored in memory as a frame buffer. Your computer constantly updates the monitor at a frequency determined by its <i>refresh rate</i>. Typically, event-driven programs register a special function called a <i>draw handler</i> that tell the computer what to draw on the canvas each time it updates its buffer. Since computers can update their buffers tens or hundreds of times per second (for example, a 120 Hz monitor handles up to 120 frames per second), humans perceive objects shown on our monitors as being fixed in place or in smooth motion, rather than being constantly updated.</li>
+            <li><strong>String Processing</strong>: Modifying text is an extremely useful application of programming, and Python makes it really easy to do. This week's lecture just scratches the surface of all of the string manipulation that's possible in Python. In addition to this week's lecture, I've also benefitted a lot from the <a href="https://automatetheboringstuff.com/chapter6/" target="_blank">Manipulating Strings chapter</a> of Al Sweigart's Automate the Boring Stuff with Python and the <a href="https://docs.python.org/2/library/string.html" target="_blank">Python docs</a>. Specifically, this week's lecture covered these basic string processing techniques:
+            <ul>
+                <li><strong>Combining Strings</strong>: In Python, you can concatenate two strings using the + operator. For example, printing "Hello" + " world" would result in "Hello world".</li>
+                <li><strong>Characters and Slices</strong>: You can get a specific character in a string by specifying its index. For example, if myVariable = "Hello world!", we could get the "H" character by calling myVariable[0]. Note that indexing starts at 0, rather than 1, in Python (this is because 0 is the most logical starting point if you consider that computers store all numbers as bits, and the number 0 is represented as 00000000 in memory). Calling myVariable[:] would return the entire "Hello world!" string, whereas myVariable[2:] would return the entire string starting from the index position 2. You can also use negative numbers as index positions, such as myVariable[-1], which would return the "!" character.</li>
+                <li><strong>Converting Strings</strong>: To convert the string representation of a number, such as "7", into an integer, use Python's "int" built-in function. For example, int("7") would return the integer 7.</li>
+            </ul>
+            </li>
+        </ul>
+        <!-- Mini Project -->
+        <p><strong>Mini Project 4</strong></p>
+        <p></p>
+        <p>See my complete implementation of <a href="https://github.com/kyleyasumiishi/Fundamentals_of_Computing/IIPP/stopwatch.py" target="_blank" rel="noopener nofollow">Mini Project 4 on GitHub</a>.</p>    
+    </body>
+</html>
+
+        

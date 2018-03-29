@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -5,7 +6,7 @@
         <link href="../styles/style.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     </head>
-    <body>
+    <body>             
         <!-- Banner -->                
         <h1>Learning Programming with Fundamentals of Computing</h1>
         <div id="header_banner">
@@ -20,15 +21,15 @@
                 <li class="dropdown">
                     <a href="javascript:void(0)" id="iipp-btn">IIPP</a>
                     <div class="dropdown-content">
-                        <a href="iipp-week0.html">Week 0</a>
                         <a href="iipp-week1.html">Week 1</a>
                         <a href="iipp-week2.html">Week 2</a>
-                        <a href="#">Week 3</a>
+                        <a href="iipp-week3.html">Week 3</a>
                         <a href="#">Week 4</a>
                         <a href="#">Week 5</a>
                         <a href="#">Week 6</a>
                         <a href="#">Week 7</a>
                         <a href="#">Week 8</a>
+                        <a href="#">Week 9</a>
                     </div>
                 </li>
                 <li class="dropdown">
@@ -62,41 +63,27 @@
         <!-- Page Heading -->   
         <h2>Introduction to Interactive Programming in Python - Week 1</h2>
         <!-- Intro Paragraph -->  
-        <p>The second week of the course introduces the basic constructs of Python programming, including functions, logic and comparisons, and conditionals. We also build our first program this week: <a href="https://en.wikipedia.org/wiki/Rock-paper-scissors#Additional_weapons" target="_blank" rel="noopener nofollow"> Rock, Paper, Scissors, Lizard, Spock!</a></p>
-        <!-- Figure -->
-        <figure>
-            <img class="fig_image" src="../images/rpsls.png" alt="Relationships between rock, paper, scissors, lizard, and Spock">
-            <figcaption>In this variant of Rock, Paper, Scissors, popularized by the The Big Bang Theory, each weapon defeats the weapons it points to, and is defeated by weapons pointing to it.</figcaption>
-        </figure>
+        <p>The first week covers the very basics of programming languages: expressions, variables, and assignments.</p>
         <!-- Python Concepts -->
         <ul>
-            <li><strong>Functions</strong>: A piece of code that you define and then execute later by calling it.</li>
-            <li><strong>Comparisons</strong>: The six comparison operators allow you to compare two values and generate a Boolean value. In programming, a Boolean expression always evaluates to either True or False (or, equivalently, Yes/No, On/Off, etc.). The comparison operators are as follows:
+            <li><strong>Expressions</strong>: Something that evaluates to a single value. For example, 2 + 2 is an expression because it evaluates to a single value, 4. The 2's are values, and the + symbol is an operator. Expressions simply combine values and operators. There are many different types of operators. The following are some of the most common types:
                 <ul>
-                    <li>Greater Than: ></li>
-                    <li>Less Than: <</li>
-                    <li>Greater Than or Equal To: >=</li>
-                    <li>Less Than or Equal To: <=></li>
-                    <li>Equal To: ==</li>
-                    <li>Not Equal To: !=</li>
+                    <li>Addition: +</li>
+                    <li>Subtraction: -</li>
+                    <li>Multiplication: *</li>
+                    <li>Division: /</li>
+                    <li>Floor Division: //</li>
+                    <li>Modular Division: %</li>
+                    <li>Exponents: **</li>
                 </ul>
             </li>
-            <li><strong>Conditionals</strong>: Oftentimes you'll want to change a program's behavior based on a given value or user input. To control the flow of your program, you can check a value in the program and then execute different lines of code based on that value. In Python, you can control the flow of programs using the following conditionals: if/elif/else.</li>
+            <li><strong>Variables</strong>: A location in memory where you can store a value.</li>
+            <li><strong>Assignments</strong>: A statement that connects a value to a variable. For example, tomato = 4. In this case, tomato is a variable, which I assigned the value 4 using the assignment operator =.</li>
         </ul>
         <!-- Mini Project -->
         <p><strong>Mini Project 1</strong></p>
-        <p>This week's mini project is to create the game Rock, Paper, Scissors, Lizard, Spock that we can play against the computer. To do so, we need to write three functions: name_to_number, number_to_name, and rpsls.</p>
-        <ul>
-            <li><strong>name_to_number</strong>: Usually, but not always, functions take input parameters, also called arguments, and perform some type of operation or comparison to the parameters. This function takes as an argument "name", which is a string representation of either "rock", "Spock", "paper", "lizard", "scissors", or some other string. Using the if/elif/else conditionals, we want to return a number between 0 and 4 corresponding to each of the possible weapons. We also want to print a message to the user if the "name" argument isn't one of the five possible weapons. A function doesn't need to explicitly return anything. If the user doesn't return anything, the function returns None by default. Generally, ending a function with a return statement is useful if you want to use the value of the return statement in another function, like we do in the function rpsls.
-                <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/0c9f959f3a87d3e0df81d2f6d92b9453.js"></script></div>
-            </li>
-            <li><strong>number_to_name</strong>: This function is simply the opposite of name_to_number shown above.
-                <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/dc9cca86951730e4a68e9bed10ab5e92.js"></script></div>
-            </li>
-            <li><strong>rpsls</strong>: This function contains the main logic of this program. It takes as an argument the string representation of the player's choice. It computes the computer's choice by generating a random integer between 0 and 4. Note that this randomly generated integer can be converted to a string using the helper function number_to_name. Then the function computes the difference between the number corresponding to the player's choice and the number corresponding to the computer's choice. This difference is calculated modulo five, which means it's the <i>remainder</i> of the difference divided by 5. Finally, this function uses the if/elif/else conditionals to determine the winner and prints the winner.
-            <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/416a2cdcdd01f3b2e64eb01a4f5911bd.js"></script></div>
-            </li>
+        <p>The structure of each course in the Fundamentals of Computing specialization includes weekly videos, homework assignments, and mini projects that allow students to apply that week's concepts. Since the first week covers the very basics of Python and the logistics of the course, its mini project is simply printing the statement "We want... a shrubbery!" in Python.</p>
+        <div class="snippet"><script src="https://gist.github.com/kyleyasumiishi/2683b8759fd227b4d056e147e95a6560.js"></script></div>
         </ul>
-        <p>See my complete implementation of <a href="https://github.com/kyleyasumiishi/Fundamentals_of_Computing/blob/master/rpsls.py" target="_blank" rel="noopener nofollow">Mini Project 1 on GitHub</a>.</p>
     </body>
 </html>
