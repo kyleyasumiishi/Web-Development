@@ -54,35 +54,41 @@ function spawn_ball(direction) {
 
 /////////////////////////////////////////////////////////////////////////////////////
 
-// Event handlers
+// Draw handler
 
 function draw() {
     var canvas = document.getElementById("frame");
     var ctx = canvas.getContext("2d");
+
+    ctx.lineWidth = 1;
 
     // Set canvas background color to black
     ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, 600, 400);
     
     // draw mid line
+    ctx.beginPath();
     ctx.moveTo(WIDTH / 2, 0);
     ctx.lineTo(WIDTH / 2, HEIGHT);
     ctx.strokeStyle="white";
     ctx.stroke();
     
     // draw left gutter
+    ctx.beginPath();
     ctx.moveTo(PAD_WIDTH, 0);
     ctx.lineTo(PAD_WIDTH, HEIGHT);
     ctx.strokeStyle="white";
     ctx.stroke()
     
     // draw right gutter
+    ctx.beginPath();
     ctx.moveTo(WIDTH - PAD_WIDTH, 0);
     ctx.lineTo(WIDTH - PAD_WIDTH, HEIGHT);
     ctx.strokeStyle="white";
     ctx.stroke();
     
     // draw scores
+    ctx.beginPath();
     ctx.font = "30px Arial";
     ctx.fillStyle = "#ffffff"
     ctx.fillText(score1.toString(), WIDTH / 4, HEIGHT / 4);
@@ -96,19 +102,21 @@ function draw() {
     ctx.fill();
     
     // update ball, keep ball on the screen
-    if ((ball_pos[1] <= BALL_RADIUS) || (ball_pos[1] >= HEIGHT - BALL_RADIUS)) {
+    if ((ball_pos[1] <= BALL_RADIUS + 1) || (ball_pos[1] >= HEIGHT - BALL_RADIUS - 1)) {
         ball_vel[1] = - ball_vel[1];
     } 
     ball_pos[0] += ball_vel[0];
     ball_pos[1] += ball_vel[1];
     
     // draw left paddle
+    ctx.beginPath();
     ctx.moveTo(HALF_PAD_WIDTH + 0.5, paddle1_pos + HALF_PAD_HEIGHT);
     ctx.lineTo(HALF_PAD_WIDTH + 0.5, paddle1_pos - HALF_PAD_HEIGHT);
     ctx.lineWidth = PAD_WIDTH;
     ctx.stroke();
     
     // draw right paddle
+    ctx.beginPath();
     ctx.moveTo(WIDTH - HALF_PAD_WIDTH - 0.5, paddle2_pos + HALF_PAD_HEIGHT);
     ctx.lineTo(WIDTH - HALF_PAD_WIDTH - 0.5, paddle2_pos - HALF_PAD_HEIGHT);
     ctx.lineWidth = PAD_WIDTH;
@@ -125,23 +133,9 @@ function draw() {
     }
 
     // determine whether paddle and ball collide
-    // if ((ball_pos[0] <= BALL_RADIUS + PAD_WIDTH) && ((paddle1_pos - HALF_PAD_HEIGHT) < ball_pos[1] < (paddle1_pos + HALF_PAD_HEIGHT))) {
-    //     ball_vel[0] = - ball_vel[0] * 1.1;
-    // } else if ((ball_pos[0] >= WIDTH - BALL_RADIUS - PAD_WIDTH) && ((paddle2_pos - HALF_PAD_HEIGHT) < ball_pos[1] < (paddle2_pos + HALF_PAD_HEIGHT))) {
-    //     ball_vel[0] = - ball_vel[0] * 1.1;
-    // } else if (ball_pos[0] <= BALL_RADIUS + PAD_WIDTH) {
-    //     ball_pos = [(WIDTH / 2), (HEIGHT / 2)];
-    //     spawn_ball("right");
-    //     score2 += 1;
-    // } else if (ball_pos[0] >= WIDTH - BALL_RADIUS - PAD_WIDTH) {
-    //     ball_pos = [(WIDTH / 2), (HEIGHT / 2)];
-    //     spawn_ball("left");
-    //     score1 += 1;
-    // }
-
-    if ((ball_pos[0] <= BALL_RADIUS + PAD_WIDTH) && ((paddle1_pos - HALF_PAD_HEIGHT) < ball_pos[1] < (paddle1_pos + HALF_PAD_HEIGHT))) {
+    if ((ball_pos[0] <= BALL_RADIUS + 1 + PAD_WIDTH + 0.5) && ((paddle1_pos - HALF_PAD_HEIGHT) < ball_pos[1]) && (ball_pos[1] < (paddle1_pos + HALF_PAD_HEIGHT))) {
         ball_vel[0] = -1 * ball_vel[0] * 1.1;
-    } else if ((ball_pos[0] >= WIDTH - BALL_RADIUS - PAD_WIDTH) && ((paddle2_pos - HALF_PAD_HEIGHT) < ball_pos[1] < (paddle2_pos + HALF_PAD_HEIGHT))) {
+    } else if ((ball_pos[0] >= WIDTH - BALL_RADIUS - 1 - PAD_WIDTH - 0.5) && ((paddle2_pos - HALF_PAD_HEIGHT) < ball_pos[1]) && (ball_pos[1] < (paddle2_pos + HALF_PAD_HEIGHT))) {
         ball_vel[0] = -1 * ball_vel[0] * 1.1;
     } else if (ball_pos[0] <= BALL_RADIUS + PAD_WIDTH + 1) {
         ball_pos = [(WIDTH / 2), (HEIGHT / 2)];
@@ -154,45 +148,83 @@ function draw() {
     }
 }
 
-function paddle1_keydown(event) {
-    var key = event.keyCode;
+/////////////////////////////////////////////////////////////////////////////////////
+
+// Key handlers
+
+var keys = {
+    w: false,
+    s: false,
+    up: false,
+    down: false
+};
+
+function keydown(event) {
+    let key = event.keyCode;
     // w key
     if (key == 87) {
-        paddle1_vel = -2;
+        keys.w = true;
+    } 
+    // s key
+    else if (key == 83) {
+        keys.s = true;
+    }
+    // up key
+    else if (key == 38) {
+        keys.up = true;
+    }
+    // down key
+    else if (key == 40) {
+        keys.down = true;
+    }
+}
+
+function keyup(event) {
+    let key = event.keyCode;
+    // w key
+    if (key == 87) {
+        keys.w = false;
     } 
     // s key
     if (key == 83) {
-        paddle1_vel = 2;
+        keys.s = false;
     }
-}
-
-function paddle2_keydown(event) {
-    var key2 = event.keyCode;
     // up key
-    if (key2 == 38) {
-        paddle2_vel = -2;
+    if (key == 38) {
+        keys.up = false;
     }
     // down key
-    if (key2 == 40) {
-        paddle2_vel = 2;
+    if (key == 40) {
+        keys.down = false;
     }
 }
 
-
-function paddle1_keyup(event) {
-    var key = event.keyCode;
-    if ((key == 87) || (key == 83)) {
+function move_handlers() {
+    if (keys.w) {
+        paddle1_vel = -2;
+    } else {
         paddle1_vel = 0;
-    } 
-}
-
-function paddle2_keyup(event) {
-    var key2 = event.keyCode;
-    if ((key2 == 38) || (key2 == 40)) {
+    }
+    if (keys.s) {
+        paddle1_vel = 2;
+    } else {
+        paddle1_vel = 0;
+    }
+    if (keys.up) {
+        paddle2_vel = -2;
+    } else {
+        paddle2_vel = 0;
+    }
+    if (keys.down) {
+        paddle2_vel = 2;
+    } else {
         paddle2_vel = 0;
     }
 }
 
+/////////////////////////////////////////////////////////////////////////////////////
+
+// Button handlers
 
 function start() {
     // Start the game by giving the ball a random direction.
@@ -202,6 +234,8 @@ function start() {
         var direction = "right";
     } 
     spawn_ball(direction);
+    setInterval(function() {move_handlers()}, 1);
+    setInterval(function() {alert(keys.w, keys.s, keys.up, keys.down)}, 3000);
 }
 
 function reset() {
@@ -210,10 +244,6 @@ function reset() {
     score2 = 0;
 }
 
-document.addEventListener("keydown", paddle1_keydown);
-document.addEventListener("keyup", paddle1_keyup);
+document.addEventListener("keydown", keydown);
+document.addEventListener("keyup", keyup);
 
-document.addEventListener("keydown", paddle2_keydown);
-document.addEventListener("keyup", paddle2_keyup);
-// document.addEventListener("keydown", paddle1_keydown);
-// document.addEventListener("keyup", function() {paddle1_keyup; paddle2_keyup});
