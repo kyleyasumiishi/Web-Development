@@ -121,22 +121,23 @@ function draw() {
     ctx.lineTo(WIDTH - HALF_PAD_WIDTH - 0.5, paddle2_pos - HALF_PAD_HEIGHT);
     ctx.lineWidth = PAD_WIDTH;
     ctx.stroke();
-
+    
     // Reset the line width to 1 px after drawing paddles
     ctx.lineWidth = 1;
 
     // update paddle's vertical position, keep paddle on the screen
-    if ((paddle1_pos + paddle1_vel >= HALF_PAD_HEIGHT) && (paddle1_pos + paddle1_vel <= HEIGHT - HALF_PAD_HEIGHT)) {
+    if (((paddle1_pos + paddle1_vel) >= HALF_PAD_HEIGHT) && ((paddle1_pos + paddle1_vel) <= (HEIGHT - HALF_PAD_HEIGHT))) {
         paddle1_pos += paddle1_vel;
-    } else if ((paddle2_pos + paddle2_vel >= HALF_PAD_HEIGHT) && (paddle2_pos + paddle2_vel <= HEIGHT - HALF_PAD_HEIGHT)) {
+    } 
+    if (((paddle2_pos + paddle2_vel) >= HALF_PAD_HEIGHT) && ((paddle2_pos + paddle2_vel) <= (HEIGHT - HALF_PAD_HEIGHT))) {
         paddle2_pos += paddle2_vel;
     }
 
     // determine whether paddle and ball collide
     if ((ball_pos[0] <= BALL_RADIUS + 1 + PAD_WIDTH + 0.5) && ((paddle1_pos - HALF_PAD_HEIGHT) < ball_pos[1]) && (ball_pos[1] < (paddle1_pos + HALF_PAD_HEIGHT))) {
-        ball_vel[0] = -1 * ball_vel[0] * 1.1;
+        ball_vel[0] = -1 * ball_vel[0] * 1.2;
     } else if ((ball_pos[0] >= WIDTH - BALL_RADIUS - 1 - PAD_WIDTH - 0.5) && ((paddle2_pos - HALF_PAD_HEIGHT) < ball_pos[1]) && (ball_pos[1] < (paddle2_pos + HALF_PAD_HEIGHT))) {
-        ball_vel[0] = -1 * ball_vel[0] * 1.1;
+        ball_vel[0] = -1 * ball_vel[0] * 1.2;
     } else if (ball_pos[0] <= BALL_RADIUS + PAD_WIDTH + 1) {
         ball_pos = [(WIDTH / 2), (HEIGHT / 2)];
         spawn_ball("right");
@@ -152,6 +153,9 @@ function draw() {
 
 // Key handlers
 
+document.addEventListener("keydown", keydown);
+document.addEventListener("keyup", keyup);
+
 var keys = {
     w: false,
     s: false,
@@ -160,66 +164,59 @@ var keys = {
 };
 
 function keydown(event) {
-    let key = event.keyCode;
-    // w key
-    if (key == 87) {
-        keys.w = true;
-    } 
-    // s key
-    else if (key == 83) {
-        keys.s = true;
+    switch(event.key) {
+        case "w": 
+            keys.w = true;
+            break;
+        case "s":
+            keys.s = true;
+            break;
+        case "ArrowUp":
+            keys.up = true;
+            break;
+        case "ArrowDown":
+            keys.down = true;
+            break;
     }
-    // up key
-    else if (key == 38) {
-        keys.up = true;
-    }
-    // down key
-    else if (key == 40) {
-        keys.down = true;
-    }
+    move_handler();
 }
 
 function keyup(event) {
-    let key = event.keyCode;
-    // w key
-    if (key == 87) {
-        keys.w = false;
-    } 
-    // s key
-    if (key == 83) {
-        keys.s = false;
+    switch(event.key) {
+        case "w":
+            keys.w = false;
+            break;
+        case "s":
+            keys.s = false;
+            break;
+        case "ArrowUp":
+            keys.up = false;
+            break;
+        case "ArrowDown":
+            keys.down = false;
+            break;
     }
-    // up key
-    if (key == 38) {
-        keys.up = false;
-    }
-    // down key
-    if (key == 40) {
-        keys.down = false;
-    }
+    move_handler();
 }
 
-function move_handlers() {
-    if (keys.w) {
-        paddle1_vel = -2;
-    } else {
+function move_handler() {
+    // Updates the velocities of paddles 1 and 2.
+    // Paddle 1
+    if ((keys.w && keys.s) || (!keys.w && !keys.s)) {
         paddle1_vel = 0;
+    } else if (keys.w && !keys.s) {
+        paddle1_vel = -1.5;
+    } else if (!keys.w && keys.s) {
+        paddle1_vel = 1.5;
     }
-    if (keys.s) {
-        paddle1_vel = 2;
-    } else {
-        paddle1_vel = 0;
-    }
-    if (keys.up) {
-        paddle2_vel = -2;
-    } else {
+    // Paddle 2
+    if ((keys.up && keys.down) || (!keys.up && !keys.down)) {
         paddle2_vel = 0;
-    }
-    if (keys.down) {
-        paddle2_vel = 2;
-    } else {
-        paddle2_vel = 0;
-    }
+    } else if (keys.up && !keys.down) {
+        paddle2_vel = -1.5;
+    } else if (!keys.up && keys.down) {
+        paddle2_vel = 1.5;
+    } 
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -234,8 +231,6 @@ function start() {
         var direction = "right";
     } 
     spawn_ball(direction);
-    setInterval(function() {move_handlers()}, 1);
-    setInterval(function() {alert(keys.w, keys.s, keys.up, keys.down)}, 3000);
 }
 
 function reset() {
@@ -244,6 +239,6 @@ function reset() {
     score2 = 0;
 }
 
-document.addEventListener("keydown", keydown);
-document.addEventListener("keyup", keyup);
+
+
 

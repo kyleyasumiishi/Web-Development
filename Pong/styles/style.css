@@ -1,0 +1,17 @@
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#start, #reset {
+    width: 250px;
+}
+
+.buttons {
+    display: inline-block;
+}
+
+.row {
+    margin-bottom: 10px;
+}

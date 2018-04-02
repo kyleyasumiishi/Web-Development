@@ -1,22 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Pong</title>
-        <link href="styles/style.css" rel="stylesheet" type="text/css">
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <!-- Pong JavaScript -->
         <script type="text/javascript" src="scripts/main.js"></script>
-       
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+        <!-- My CSS Stylesheet -->
+        <link href="styles/style.css" rel="stylesheet" type="text/css">
     </head>
-    <body onload="load_canvas()" id="body">
-        <h1>Pong</h1>
-        <div class="buttons">
-            <button id="reset" type="button" onclick="reset()">Reset</button>
+    <body onload="load_canvas()">
+        <div class="container-fluid">
+            <h1 class="text-center">Pong</h1>
+            <p class="text-center"><strong>Controls: </strong>w, s, ↑, ↓</p>
+            <div align="center">
+                <canvas id="frame" width="600" height="400"></canvas>
+            </div>
+            <div id="buttons" class="row text-center">
+                <div class="col-sm-12">
+                    <button id="start" type="button" onclick="start()" class="btn btn-success">Start</button>
+                    <button id="reset" type="button" onclick="reset()" class="btn btn-primary">Reset</button>
+                </div>
+            </div>
         </div>
-        <div class="buttons">
-            <button id="start" type="button" onclick="start()">Start</button>
-        </div>
-        
-        <canvas id="frame" width="600" height="400"></canvas>
-
     </body>
 </html>
