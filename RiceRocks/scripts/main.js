@@ -80,7 +80,7 @@ var explosion_info = new ImageInfo([64, 64], [128, 128], 17, 24, true);
 // Draw canvas when page loads
 
 function load_canvas() {
-    setInterval(function() {draw()}, 10);
+    draw();
 
 }
 
@@ -150,10 +150,7 @@ doFirst();
 function draw() {
     var canvas = document.getElementById("frame");
     var ctx = canvas.getContext("2d");
-    ctx.fillText("Hello", 20, 20)
-
     var nebula_image = new Image();
-    nebula_image.onload = ctx.drawImage(nebula_image, 0, 0);
     nebula_image.src = "images/nebula_blue.png";
-
+    ctx.drawImage(nebula_image, 0, 0);
 }
