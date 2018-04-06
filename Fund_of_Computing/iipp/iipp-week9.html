@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IIPP Week 9</title>
+        <link href="../styles/style.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Banner -->                
+        <h1>Learning Programming with Fundamentals of Computing</h1>
+        <div id="header_banner">
+            <img src="../images/fundamentals-of-computing-code.png" alt="A snippet of Python code that prints a welcome message." id="header_image">
+        </div>
+        <!-- Drop Down Menu -->                        
+        <div class="buttons"> 
+            <ul class="header_dropdown">
+                <li class="dropdown">
+                    <a href="../index.html" id="home-btn">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="iipp-btn">IIPP</a>
+                    <div class="dropdown-content">
+                        <a href="iipp-week1.html">Week 1</a>
+                        <a href="iipp-week2.html">Week 2</a>
+                        <a href="iipp-week3.html">Week 3</a>
+                        <a href="iipp-week4.html">Week 4</a>
+                        <a href="iipp-week5.html">Week 5</a>
+                        <a href="#">Week 6</a>
+                        <a href="#">Week 7</a>
+                        <a href="#">Week 8</a>
+                        <a href="iipp-week9.html">Week 9</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="poc-btn">POC</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="alg-btn">AlgThk</a>
+                    <div class="dropdown-content">
+                            <a href="#">Week 0</a>
+                            <a href="#">Week 1</a>
+                            <a href="#">Week 2</a>
+                            <a href="#">Week 3</a>
+                            <a href="#">Week 4</a>
+                            <a href="#">Week 5</a>
+                            <a href="#">Week 6</a>
+                            <a href="#">Week 7</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Page Heading -->                
+        <h2>Introduction to Interactive Programming in Python - Week 9</h2>
+        <!-- Intro Paragraph -->        
+        <p>This is the final week of the two-part course Introduction to Interactive Programming in Python. This week's lectures introduce a very important data type in Python: sets, which I briefly cover in this blog post.</p>
+        <p>This week's mini project is building RiceRocks, a modern recreation of the classic arcade game <a href="https://en.wikipedia.org/wiki/Asteroids_(video_game)" target="_blank">Asteroids</a>. The name RiceRocks is a reference to Rice University, where this course's instructors teach computer science.</p>
+        <!-- Figure -->
+            <figure>
+            <a href="https://kyleyasumiishi.github.io/Web-Development/RiceRocks/" target="_blank"><img class="fig_image" src="../images/ricerocks_js.png" alt="Screenshot of my implementation of RiceRocks in JavaScript"></a>
+            <figcaption>My implementation of Pong in JavaScript</figcaption>
+        </figure>
+        <!-- Python Concepts -->
+        <ul>
+            <li><strong>Sets</strong>: This week introduces the set data type, which we will use in our implementation of this week's mini project, RiceRocks. A set is an <em>unordered collection without duplicates.</em> In previous weeks we learned about the list data type, which is a mutable sequence of objects. Sets are similar to lists in that they are both collections of objects, but unlike lists, sets contain no duplicate items. It's important to note that most of the operations performed on sets in Python (e.g., union, intersection, etc.) simply apply the mathematical principles of <a href="https://en.wikipedia.org/wiki/Set_theory" target="_blank">set theory</a>, the branch of mathematics that deals with sets. To create a new set or convert an iteratble into a set in Python, we use the following syntax: <code>set()</code> or <code>set(iterable)</code>. Below are some common set operations:
+            <ul>
+                <li><strong>Set Union</strong>: <code>a.union(b)</code> The union of sets a and b is the set of elements which are in set a, set b, or in both sets a and b.</li>
+                <li><strong>Set Intersection</strong>: <code>a.intersection(b)</code> The intersection of sets a and b is the set that only contains all elements of a that also belong to b.</li>
+                <li><strong>Set Difference</strong>: <code>a.difference(b)</code> The difference of sets a and b is the set that includes all elements in a that are not included in b.</li>
+                <li><strong>Add Element</strong>: <code>a.add(x)</code> Adds element x to set a.</li>
+                <li><strong>Remove Specific Element:</strong>: <code>a.remove(x)</code> Removes element x from set a.</li>
+                <li><strong>Remove Arbitrary Element</strong>: <code>a.pop()</code> Removes and returns an arbitrary element from set a.</li>
+            </ul></li>
+        <!-- Mini Project -->
+        <p><strong>Mini Project 9</strong></p>
+        <p>RiceRocks is the final mini project of Introduction to Interactive Programming in Python. It's a challenging and extremely fun and rewarding project to build for new programmers because it brings together so many fundamental programming concepts that this course covers, such as global/local variables, functions, classes and object-oriented programming, event-driven programming, sets, lists, and so on. In fact, it does such a great job of tying together the basic building blocks of programming that it was one of the first projects I built in <a href="https://github.com/kyleyasumiishi/Web-Development/blob/master/RiceRocks/scripts/main.js" target="_blank">JavaScript</a> when I began learning front-end development. The explanation below of my implementation of RiceRocks in Python isn't a step-by-step tutorial of how to build this game. Rather, it shows how building the game brings together all of the programming concepts from the first eight weeks of the course.</p>
+        <ul>
+            <li><strong>Global/Local Variables</strong>: Variables point to a physical location in a computer's memory that stores a value. Variables that are not defined within a function have a <em>global scope</em> and can be accessed and modified by other objects in the program, such as functions. Variables that are defined within a function have a <em>local scope</em> and can only be accessed and modified within the scope of that particular function. It's best practice to declare global variables that shouldn't be modified in uppercase letters to distinguish them between global variables that may be modified in a program. For example, the <code>WIDTH</code> and <code>HEIGHT</code> global variables should not be modified by any functions, but the <code>score</code>, <code>lives</code>, <code>time</code>, <code>started</code>, and <code>counter</code> global variables will be updated to keep track of the state of the game.</li>
+            <div class="snippet">
+                <script src="https://gist.github.com/kyleyasumiishi/91677f547eaee83c1fccd828300d8eb7.js"></script>
+            </div>
+            <li><strong>Classes and Object-Oriented Programming</strong>: One of the core concepts central to object-oriented programming (OOP) is the abstract notion of <em>encapsulation</em>, which bundles data, properties and methods (i.e., functions) of an <em>object</em> to distinguish that object as its own entity separate from the rest of the program. <em>Classes</em> are like a blueprint for creating objects. They can be re-used to create multiple objects that have a similar data format and properties. An object, then, is simply an instance of a class. My implementation of RiceRocks includes a ship class and a sprite class. Note that the ship class is not the ship itself; rather, it's a blueprint for instantiating a ship. Similarly, the sprite class is simply a blueprint for creating sprite objects, which include the asteroids, missiles, and explosion objects. Shown below is the code snippets for the ship class, as well as the code for creating the ship object.</li>
+            <div class="snippet">
+                <script src="https://gist.github.com/kyleyasumiishi/5d4ecb1a85b7f3857b764169e62dc6ed.js"></script>
+                <script src="https://gist.github.com/kyleyasumiishi/558aafeb18e29bac5d6e4a79eea5d3da.js"></script>
+            </div>
+            <li><strong>Helper Functions</strong>: A function is a piece of code that you define and execute later by calling it. In general, I try to write functions that only do one thing, and do that thing perfectly. This makes functions easier to test, debug, and, most importantly, read (Note: unit tests and the importance of testing are introduced in Principles of Computing). In other words, rather than writing one function that performs many computations, I prefer isolating each computation in a separete helper function, and then calling the helper functions in other parts of my program when necessary. The code snippet below shows the helper functions I wrote for RiceRocks. Note that each helper function aims to perform just one task. For example, the simplest helper function below, <code>dist(p, q)</code>, just returns the distance between two points, p and q.</li>
+            <div class="snippet">
+                <script src="https://gist.github.com/kyleyasumiishi/f0ce77e9260a6a81344c4f6498dd87b3.js"></script>
+            </div>
+            <li><strong>Event-Driven Programming</strong>: Most of the mini projects in Introduction to Interactive Programming in Python are interactive, as the name of the course suggests, and RiceRocks is by far the most interactive. Event-driven programs wait for pre-defined <em>events</em> to occur, such as specific inputs from a keyboard or mouse, or a certain amount of elapsed time. Once an event occurs, a special type of function called an <em>event handler</em> is called, which tells the program how to handle that type of event. Event-driven programming allows users to interact with applications such as games. My implementation of RiceRocks includes event handlers for clicking events, keydown and keyup events, and timing events. The code snippet below shows the <code>click(pos)</code> event handler that is called when a player clicks their left mouse button on the canvas.</li>
+            <div class="snippet">
+                <script src="https://gist.github.com/kyleyasumiishi/101a7368586753d1fdd776b2b91c1d1e.js"></script>
+            </div>
+        </ul>
+        <p>Introduction to Interactive Programming in Python was the first massively-open online course (MOOC) I took, and it was a fantastic experience that made me sincerely appreciate the efforts of the course creators and experience first-hand the incredible benefits of self-directed education in general. I've had excellent teachers and professors throughout high school, college, and graduate school, and I can honestly say that this course and the entire specialization has been one of the best educational experiences of my life. This course provides an excellent introduction to programming, and I highly recommend it as well as the subsequent courses which delve into the principles, mathematics, and algorithmic thinking of computer science.</p>
+        <p>See my complete implementation of <a href="https://github.com/kyleyasumiishi/Fundamentals_of_Computing/blob/master/IIPP/rice_rocks.py" target="_blank" rel="noopener nofollow">Mini Project 9 on GitHub</a>.</p>    
+    </body>
+</html>
+
+        
