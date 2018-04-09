@@ -467,17 +467,18 @@ function click(event) {
     let canvas = document.getElementById("frame");
     x = event.clientX - canvas.offsetLeft;
     y = event.clientY - canvas.offsetTop;
-    score = 0;
-    lives = 3;
     let center = [WIDTH / 2, HEIGHT / 2];
     let size = splash_info.get_size();
     let inwidth = ((center[0] - (size[0] / 2) < x) && (x < center[0] + size[0] / 2));
     let inheight = ((center[1] - (size[1] / 2) < y) && (y < center[1] + size[1] / 2));
-    // soundtrack.play();
     if (!started && inwidth && inheight) {
+        score = 0;
+        lives = 3;
         started = true;
         interval = setInterval(function() {timer(); rock_spawner()}, 1000);
         sound_interval = setInterval(function() {play_sound(soundtrack);}, 60000);
+    } else if (started && x >= 0 && x <= WIDTH && y >= 0 && y <= HEIGHT) {
+        alert("Game Paused. Click OK to resume.");
     }
 }
 
