@@ -1,0 +1,16 @@
+{
+  "name": "2048",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "dependencies": {
+    "jest": "^22.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch *.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
