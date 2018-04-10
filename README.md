@@ -16,3 +16,6 @@
 
 <a href="https://kyleyasumiishi.github.io/Web-Development/RiceRocks/" target="_blank"><strong>RiceRocks</strong></a>
 <ul><li>Clone of the classic arcade game Asteroids built with JavaScript, HTML, and CSS (Click <a href="https://github.com/kyleyasumiishi/Fundamentals_of_Computing/blob/master/IIPP/rice_rocks.py" target="_blank">here</a> for my Python implementation). This game works best on a desktop or laptop monitor as the canvas is 800x600 pixels. The name RiceRocks is a reference to to Rice University, which offers the Coursera specialization Fundamentals of Computing that features this game as one of its interactive programming projects in Python. To learn more about this computer science specialization offered by Rice University, check out my blog, <a href="https://kyleyasumiishi.github.io/Web-Development/Fund_of_Computing/index.html" target="_blank">Learn Programming with Fundamentals of Computing</a>.</li></ul>
+
+<a href="https://kyleyasumiishi.github.io/Web-Development/2048/" target="_blank"><strong>2048</strong></a>
+<ul><li>My replica of the 2048 game built with JavaScript, HTML, CSS, and Bootstrap (Click <a href="https://github.com/kyleyasumiishi/Fundamentals_of_Computing/blob/master/POC/2048.py" target="_blank">here</a> for my Python implementation).</li></ul>
