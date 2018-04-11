@@ -1,7 +1,5 @@
 /* Clone of 2048 game. */
 
-// var score = 0;
-
 // Directions
 const UP = 1;
 const DOWN = 2;
