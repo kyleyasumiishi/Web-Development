@@ -1,6 +1,6 @@
 /* Clone of 2048 game. */
 
-var score = 0;
+// var score = 0;
 
 // Directions
 const UP = 1;
@@ -34,12 +34,13 @@ Object.freeze(OFFSETS);
  * Helper function that merges a single row or column.
  * @param {Array} line - A single row or column.
  */
-function merge(line) {
+function merge(line, score) {
     var merged_array = line.filter(num => num != 0);
+    var new_score = score;
     // Merge non-zeroes.
     for (let i=1; i<merged_array.length; i++) {
         if (merged_array[i] == merged_array[i - 1]) {
-            score = score + (merged_array[i - 1] * 2);
+            new_score += (merged_array[i - 1] * 2);
             merged_array[i - 1] *= 2;
             merged_array[i] = 0;
         }
@@ -49,7 +50,24 @@ function merge(line) {
     while (line.length > merged_array.length) {
         merged_array.push(0);
     }
-    return merged_array;
+    return [merged_array, new_score];
+}
+
+/*
+ * Helper function that compares two arrays.
+ * @param {Array} array1
+ * @param {Array} array2
+ */
+function array_equal(array1, array2) {
+    if (array1.length != array2.length) {
+        return false;
+    }
+    for (let i=0; i<array1.length; i++) {
+        if (array1[i] != array2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 /*
@@ -61,6 +79,7 @@ class TwentyFortyEight {
     constructor(grid_height, grid_width, grid) {
         this._height = grid_height;
         this._width = grid_width;
+        this._score = 0;
         // Create grid.
         if (grid != undefined) {
             this._grid = grid;
@@ -103,6 +122,10 @@ class TwentyFortyEight {
 
     get_grid_width() {
         return this._width;
+    }
+
+    get_score() {
+        return this._score;
     }
 
     reset() {
@@ -179,8 +202,10 @@ class TwentyFortyEight {
                 temp_array.push(this.get_tile(row, col));
             }
             // Merge. 
-            var merged_array = merge(temp_array);
-            if (merged_array != temp_array) {
+            var merged_array = merge(temp_array, this._score);
+            this._score = merged_array[1];
+            merged_array = merged_array[0];
+            if (!array_equal(merged_array, temp_array)) {
                 is_grid_changed = true;
             }
             // Iterate over tiles in traversal_dir again.
@@ -194,9 +219,7 @@ class TwentyFortyEight {
             this.new_tile();
         }
     }
-
 }
-
 
 /*
  * Class to run game GUI. 
@@ -246,11 +269,11 @@ class GUI {
                 ctx.drawImage(tiles_image, (val * TILE_SIZE), 0, TILE_SIZE, TILE_SIZE, (col * TILE_SIZE + BORDER_SIZE), (row * TILE_SIZE + BORDER_SIZE), TILE_SIZE, TILE_SIZE);
             }
         }
-        document.getElementById("score-number").innerHTML = score;
+        document.getElementById("score-number").innerHTML = this._game.get_score();
     }
     start() {
         this._game.reset();
-        score = 0;
+        this._game._score = 0;
     }
 }
 
