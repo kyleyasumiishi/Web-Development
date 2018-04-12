@@ -4,8 +4,12 @@ const PLAYERX = 2;
 const PLAYERO = 3;
 const DRAW = 4;
 
-
-
+/* 
+ * Class to represent a Tic-Tac-Toe board.
+ * @param {number} dim - The number of rows and columns.
+ * @param {Boolean} reverse - Represents whether the game is played in reverse (true) or not (false=default). In Reverse Tic-Tac-Toe, the player wins if the opponent gets 3 in a row. 
+ * @param {array} board - A grid of cells structured as an array of arrays that represents a Tic-Tac-Toe board. Each cell contains one of the constants EMPTY, PLAYERX, or PLAYERO.
+ */
 function TTTBoard(dim, reverse, board) {
     this._dim = dim;
     if (reverse == true) {
@@ -88,7 +92,7 @@ TTTBoard.prototype.check_win = function() {
     // check all lines
     for (let line of lines) {
         let line_set = new Set(line);
-        if (line_set.size == 1 && line[0] != EMPTY) {
+        if (line_set.size == 1 && (line[0] == PLAYERX || line[0] == PLAYERO)) {
             if (this._reverse) {
                 return switch_player(line[0]);
             } else {
@@ -104,6 +108,18 @@ TTTBoard.prototype.check_win = function() {
     return null;
 }
 
+TTTBoard.prototype.clone = function() {
+    var shallow_copy = new TTTBoard(this._dim, this._reverse, this._board);
+    var JSON_clone = JSON.parse(JSON.stringify(shallow_copy));
+    return new TTTBoard(JSON_clone["_dim"], JSON_clone["_reverse"], JSON_clone["_board"]);
+}
+
+
+
+/*
+ * Simple function that switches player.
+ * @param {number} player - Variable PLAYERX or PLAYERO. representing the numbers 2 or 3, respectively.
+ */
 function switch_player(player) {
     if (player == PLAYERX) {
         return PLAYERO;
@@ -111,24 +127,43 @@ function switch_player(player) {
         return PLAYERX;
     }
 } 
- 
+
+/*
+ * Function to play a game with two Monte Carlo machine players.
+ * @param {function} mc_move_function - A function that uses the Monte Carlo simulation to return a move for the player in the form of a [row, col] array.
+ * @param {number} ntrials - The number of trials.
+ * @param {Boolean} reverse - Represents whether the game is played in reverse (true) or not (false=default).
+ */
 function play_game(mc_move_function, ntrials, reverse) {
     if (reverse == true) {
-        var board = TTTBoard(3, true);
+        var board = new TTTBoard(3, true);
     } else {
-        var board = TTTBoard(3);
+        var board = new TTTBoard(3);
     }
     var curplayer = PLAYERX;
     var winner = null;
     // Run game
     while (winner == null) {
         // Move
-        
+        var best_move = mc_move_function(board, curplayer, ntrials);
+        board.move(best_move[0], best_move[1], curplayer);
+        // Update state
+        winner = board.check_win();
+        curplayer = switch_player(curplayer);
+        // Display board
+        console.log(board._board);
+    }
+    // Print winner
+    if (winner == PLAYERX) {
+        console.log("X wins!");
+    } else if (winner == PLAYERO) {
+        console.log("O wins!");
+    } else if (winner == DRAW) {
+        console.log("Tie!")
+    } else {
+        console.log("Error: unknown winner");
     }
 }
 
-var is_und = null;
-console.log(is_und);
 
-
-module.exports = { TTTBoard: TTTBoard, EMPTY: EMPTY, PLAYERX: PLAYERX, PLAYERO: PLAYERO, DRAW: DRAW, switch_player: switch_player };
+module.exports = { TTTBoard: TTTBoard, EMPTY: EMPTY, PLAYERX: PLAYERX, PLAYERO: PLAYERO, DRAW: DRAW, switch_player: switch_player, play_game: play_game };
