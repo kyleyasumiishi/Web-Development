@@ -40,6 +40,22 @@ function GUI(size, aiplayer, aifunction, ntrials, reverse) {
         var canvas = document.getElementById("frame");
         var ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, GUI_WIDTH, GUI_HEIGHT);
+        for (var bar_start = this._bar_spacing; bar_start<GUI_WIDTH - 1; bar_start += this._bar_spacing) {
+            ctx.fillStyle = "black";
+            ctx.lineWidth = BAR_WIDTH;
+            // vertical lines
+            ctx.beginPath();
+            ctx.moveTo(bar_start, 0);
+            ctx.lineTo(bar_start, GUI_HEIGHT);
+            ctx.stroke();
+            ctx.closePath();
+            // horizontal lines
+            ctx.beginPath();
+            ctx.moveTo(0, bar_start);
+            ctx.lineTo(GUI_WIDTH, bar_start);
+            ctx.stroke();
+            ctx.closePath();
+        }
     }
 
     this.draw = function() {
