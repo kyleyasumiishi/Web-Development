@@ -14,11 +14,15 @@ html, body {
 
 }
 
+#status {
+
+}
+
 .above-canvas {
 
 }
 
-.toggle-button {
+.toggle-checkbox {
 
 }
 
@@ -31,7 +35,8 @@ html, body {
 }
 
 #frame {
-    
+    border-style: solid;
+    border-color: black;
 }
 
 .below-canvas {

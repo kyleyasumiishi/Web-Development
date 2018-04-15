@@ -1,4 +1,11 @@
-/* Monte Carlo Tic-Tac-Toe Player */
+/* 
+Monte Carlo Tic-Tac-Toe
+
+This is the student portion of my Monte Carlo Tic-Tac-Toe mini project,
+which I built as part of Rice University's Fundamentals of Computing specialization on Coursera. 
+I converted this code from Python into JavaScript and made minor logic tweaks 
+as part of my re-implementation of this project in JavaScript.
+*/
 
 // const TTT = require('./board');
 
@@ -95,7 +102,7 @@ function mc_move(board, player, trials) {
         scores.push(a_row);
     }
 
-    for (let _=0; _<trials; _++) {
+    for (let i=0; i<trials; i++) {
         let board_clone = board.clone();
         mc_trial(board_clone, player);
         mc_update_scores(scores, board_clone, player);

@@ -1,3 +1,11 @@
+/* 
+Instructor-provided board code for my Tic-Tac-Toe mini projects, which are part of
+Rice University's Fundamentals of Computing specialization on Coursera. 
+I converted this code from Python into JavaScript and made minor logic tweaks 
+as part of my re-implementation of this project in JavaScript.
+*/
+
+
 // Constants
 const EMPTY = 1;
 const PLAYERX = 2;
@@ -29,36 +37,35 @@ function TTTBoard(dim, reverse, board) {
             this._board.push(a_row);
         }
     }
-}
 
-TTTBoard.prototype.get_dim = function() {
-    return this._dim;
-}
+    this.get_dim = function() {
+        return this._dim;        
+    }
 
-TTTBoard.prototype.square = function(row, col) {
-    return this._board[row][col];
-}
+    this.square = function(row, col) {
+        return this._board[row][col];
+    }
 
-TTTBoard.prototype.get_empty_squares = function() {
-    var empty = [];
-    for (let row=0; row<this._dim; row++) {
-        for (let col=0; col<this._dim; col++) {
-            if (this._board[row][col] == EMPTY) {
-                empty.push([row, col]);
+    this.get_empty_squares = function() {
+        var empty = [];
+        for (let row=0; row<this._dim; row++) {
+            for (let col=0; col<this._dim; col++) {
+                if (this._board[row][col] == EMPTY) {
+                    empty.push([row, col]);
+                }
             }
         }
+        return empty;    
     }
-    return empty;
-}
 
-TTTBoard.prototype.move = function(row, col, player) {
-    if (this._board[row][col] == EMPTY) {
-        this._board[row][col] = player;
+    this.move = function(row, col, player) {
+        if (this._board[row][col] == EMPTY) {
+            this._board[row][col] = player;
+        }
     }
-}
 
-TTTBoard.prototype.check_win = function() {
-    var board = this._board;
+    this.check_win = function() {
+        var board = this._board;
     var dim = this._dim;
     var dimrng = [];
     for (let i=0; i<dim; i++) {
@@ -78,6 +85,7 @@ TTTBoard.prototype.check_win = function() {
         }
         cols.push(col);
     }
+    cols.forEach(col => lines.push(col));
     // diags
     var diag1 = [];
     for (let idx of dimrng) {
@@ -106,15 +114,14 @@ TTTBoard.prototype.check_win = function() {
     }
     // game is still in progress
     return null;
+    }
+
+    this.clone = function() {
+        var shallow_copy = new TTTBoard(this._dim, this._reverse, this._board);
+        var JSON_clone = JSON.parse(JSON.stringify(shallow_copy));
+        return new TTTBoard(JSON_clone["_dim"], JSON_clone["_reverse"], JSON_clone["_board"]);
+    }
 }
-
-TTTBoard.prototype.clone = function() {
-    var shallow_copy = new TTTBoard(this._dim, this._reverse, this._board);
-    var JSON_clone = JSON.parse(JSON.stringify(shallow_copy));
-    return new TTTBoard(JSON_clone["_dim"], JSON_clone["_reverse"], JSON_clone["_board"]);
-}
-
-
 
 /*
  * Simple function that switches player.

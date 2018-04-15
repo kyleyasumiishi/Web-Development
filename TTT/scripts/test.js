@@ -1,6 +1,14 @@
+/*
+Unit Tests for my implementation of Monte Carlo Tic-Tac-Toe and 
+MiniMax Tic-Tac-Toe in JavaScript.
+
+I built the Monte Carlo and MiniMax Tic-Tac-Toe projects as part of 
+Rice University's Fundamentals of Computing specialization on Coursera. 
+*/
+
 const board = require('./board');
 const mc = require('./monte-carlo');
-
+const mm = require('./minimax');
 
 // TTTBoard Object
 var board_1 = new board.TTTBoard(3);
@@ -59,7 +67,6 @@ test('check_win - game in progress', () => {
     expect(board_1.check_win()).toBe(null);
 })
 
-// clone
 var board_13 = new board.TTTBoard(3);
 var board_13_clone = board_13.clone();
 test('clone - check board', () => {
@@ -76,7 +83,7 @@ test('clone - check different objects', () => {
 })
 
 
-// Switch Player
+// switch_player
 test('switch_player', () => {
     expect(board.switch_player(board.PLAYERX)).toBe(board.PLAYERO);
 })
@@ -177,3 +184,43 @@ test('mc_move - check board updated', () => {
 test('mc_move - check move made', () => {
     expect(board_14.get_empty_squares().length).toBeLessThan(board_14_original.get_empty_squares().length);
 })
+
+// MiniMax
+var mm_board_1 = new board.TTTBoard(3, false, [[2,3,3],[2,2,3],[2,1,1]]);
+test('mm_move - X wins', () => {
+    expect(mm.mm_move(mm_board_1, mm.PLAYERX)).toEqual([1, [-1,-1]]);
+})
+
+var mm_board_2 = new board.TTTBoard(3, false, [[2,3,3],[3,2,2],[3,2,3]]);
+test('mm_move - Draw', () => {
+    expect(mm.mm_move(mm_board_2, mm.PLAYERX)).toEqual([0, [-1,-1]]);
+})
+
+var mm_board_3 = new board.TTTBoard(3, false, [[3,3,3],[3,2,2],[3,2,2]]);
+test('mm_move - O wins', () => {
+    expect(mm.mm_move(mm_board_3, mm.PLAYERX)).toEqual([-1, [-1,-1]]);
+})
+test('mm_move - O wins', () => {
+    expect(mm.mm_move(mm_board_3, mm.PLAYERO)).toEqual([-1, [-1,-1]]);
+})
+
+var mm_board_4 = new board.TTTBoard(3, false, [[3,2,2],[3,2,1],[1,3,2]]);
+test('mm_move - Player O turn - win', () => {
+    expect(mm.mm_move(mm_board_4, mm.PLAYERO)).toEqual([-1, [2,0]]);
+})
+
+var mm_board_5 = new board.TTTBoard(3, false, [[3,2,1],[3,2,1],[2,3,2]]);
+test('mm_move - Player O turn - draw', () => {
+    expect(mm.mm_move(mm_board_5, mm.PLAYERO)).toEqual([0, [0,2]]);
+})
+
+var mm_board_6 = new board.TTTBoard(3, false, [[3,2,1],[3,2,2],[1,3,2]]);
+test('mm_move - Player O turn - win', () => {
+    expect(mm.mm_move(mm_board_6, mm.PLAYERO)).toEqual([-1, [2,0]]);
+})
+
+var mm_board_7 = new board.TTTBoard(3, false, [[3,2,1],[3,2,1],[1,3,2]]);
+test('mm_move - Player X turn - draw', () => {
+    expect(mm.mm_move(mm_board_7, mm.PLAYERX)).toEqual([0, [2, 0]]);
+})
+

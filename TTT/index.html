@@ -10,6 +10,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <!-- My JS Scripts -->
         <script type="text/javascript" src="./scripts/monte-carlo.js"></script>
+        <script type="text/javascript" src="./scripts/minimax.js"></script>
         <script type="text/javascript" src="./scripts/board.js"></script>
         <script type="text/javascript" src="./scripts/gui.js"></script>
         <!-- My CSS Stylesheets -->
@@ -21,20 +22,22 @@
                 <div class="title">
                     <h1>Tic-Tac-Toe</h1>
                 </div>
+                <div id="status"></div>
             </div>
 
             <div class="above-canvas">
-                <div class="toggle-button">
-
+                <div class="toggle-buttons btn-group">
+                    <button id="mc" type="button" class="btn btn-primary active" onclick="toggle_click(id)">Beatable</button>
+                    <button id="mm" type="button" class="btn btn-primary" onclick="toggle_click(id)">Unbeatable</button>
                 </div>
-
+                    
                 <div class="reset-buton">
-
+                    <button type="button" onclick="new_game()" class="btn">New Game</button>
                 </div>
             </div>
 
             <div class="TTT-canvas">
-                <canvas id="frame" width="" height=""></canvas>
+                <canvas id="frame" width="400" height="400"></canvas>
             </div>
 
             <div class="below-canvas">
