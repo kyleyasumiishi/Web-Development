@@ -18,13 +18,14 @@ const DRAW = 4;
  * @param {Boolean} reverse - Represents whether the game is played in reverse (true) or not (false=default). In Reverse Tic-Tac-Toe, the player wins if the opponent gets 3 in a row. 
  * @param {array} board - A grid of cells structured as an array of arrays that represents a Tic-Tac-Toe board. Each cell contains one of the constants EMPTY, PLAYERX, or PLAYERO.
  */
-function TTTBoard(dim, reverse, board) {
+function TTTBoard(dim, reverse = false, board) {
     this._dim = dim;
-    if (reverse == true) {
-        this._reverse = reverse;
-    } else {
-        this._reverse = false;
-    }
+    this._reverse = reverse;
+    // if (reverse == true) {
+    //     this._reverse = reverse;
+    // } else {
+    //     this._reverse = false;
+    // }
     if (board != undefined) {
         this._board = board;
     } else {
