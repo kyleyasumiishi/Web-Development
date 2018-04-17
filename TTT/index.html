@@ -27,8 +27,13 @@
 
             <div class="above-canvas">
                 <div class="toggle-buttons btn-group">
-                    <button id="mc" type="button" class="btn btn-primary active" onclick="toggle_click(id)">Beatable</button>
-                    <button id="mm" type="button" class="btn btn-primary" onclick="toggle_click(id)">Unbeatable</button>
+                    <button id="mc" type="button" class="btn btn-primary active" onclick="toggle_game(id)">Beatable</button>
+                    <button id="mm" type="button" class="btn btn-primary" onclick="toggle_game(id)">Unbeatable</button>
+                </div>
+
+                <div class="toggle-buttons btn-group">
+                    <button id="px" type="button" class="btn btn-primary" onclick="toggle_player(id)">Player X</button>
+                    <button id="po" type="button" class="btn btn-primary active" onclick="toggle_player(id)">Player O</button>
                 </div>
                     
                 <div class="reset-buton">

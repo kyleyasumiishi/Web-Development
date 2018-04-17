@@ -199,20 +199,30 @@ function click(event) {
     var canvas = document.getElementById("frame");
     var x = event.clientX - canvas.offsetLeft;
     var y = event.clientY - canvas.offsetTop;
-    var position = [x, y];
-    gui.click(position);
+    if ((x >= 0 && x <= GUI_WIDTH) && (y >= 0 && y <= GUI_HEIGHT)) {
+        var position = [x, y];
+        gui.click(position);
+    }
 }
 
 function new_game() {
     if (document.getElementById("mc").classList.contains("active")) {
-        gui.new_game();
+        if (document.getElementById("px").classList.contains("active")) {
+            gui = new GUI(3, PLAYERO, mc_move, 300, false);
+        } else {
+            gui = new GUI(3, PLAYERX, mc_move, 100, false);
+        }
     } else {
-        gui = new GUI(3, PLAYERX, move_wrapper, 1, false);
-        gui.new_game();
+        if (document.getElementById("px").classList.contains("active")) {
+            gui = new GUI(3, PLAYERO, move_wrapper, 1, false);
+        } else {
+            gui = new GUI(3, PLAYERX, move_wrapper, 1, false);
+        }
     }
+    gui.new_game();
 }
 
-function toggle_click(id) {
+function toggle_game(id) {
     if (id == "mc") {
         document.getElementById("mc").classList.add("active");
         document.getElementById("mm").classList.remove("active");
@@ -220,5 +230,19 @@ function toggle_click(id) {
         document.getElementById("mm").classList.add("active");
         document.getElementById("mc").classList.remove("active");
 
+    }
+}
+
+function toggle_player(id) {
+    if (id == "px") {
+        document.getElementById("px").classList.add("active");
+        document.getElementById("po").classList.remove("active");
+        console.log("Player X has active class:", document.getElementById("px").classList.contains("active")  + "\n" +
+        "player O has active class:", document.getElementById("po").classList.contains("active"));
+    } else {
+        document.getElementById("po").classList.add("active");
+        document.getElementById("px").classList.remove("active");
+        console.log("Player X has active class:", document.getElementById("px").classList.contains("active")  + "\n" +
+        "player O has active class:", document.getElementById("po").classList.contains("active"));
     }
 }

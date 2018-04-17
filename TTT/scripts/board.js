@@ -21,11 +21,6 @@ const DRAW = 4;
 function TTTBoard(dim, reverse = false, board) {
     this._dim = dim;
     this._reverse = reverse;
-    // if (reverse == true) {
-    //     this._reverse = reverse;
-    // } else {
-    //     this._reverse = false;
-    // }
     if (board != undefined) {
         this._board = board;
     } else {
