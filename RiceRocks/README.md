@@ -5,7 +5,7 @@ RiceRocks is a modern remake of the classic arcade game Asteroids. The name Rice
 <a href="https://kyleyasumiishi.github.io/Web-Development/RiceRocks/" target="_blank">Play RiceRocks!</a>
 
 
-<a href="" target="_blank">My Python implementation of RiceRocks</a>
+<a href="https://github.com/kyleyasumiishi/Fundamentals_of_Computing/blob/master/IIPP/rice_rocks.py" target="_blank">My Python implementation of RiceRocks</a>
 
 ## Technologies Used
 
