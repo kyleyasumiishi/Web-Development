@@ -12,6 +12,7 @@ I built this clone of the classic game Pong as part of Rice University's Courser
 * JavaScript
 * HTML5
 * CSS3
+* Bootstrap4
 * Python
 
 ## Authors
